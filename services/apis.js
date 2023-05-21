@@ -13,7 +13,7 @@ export const cohereGenerateApi = async (text) => {
             headers: {
               accept: 'application/json',
               'content-type': 'application/json',
-              authorization: 'Bearer 1JGg0legx8NFWsUB7waNRoYrqEF78V6NV6Z3e6Ld'
+              authorization: 'Bearer Api_key'
             }
           });
           return {data: {text: response?.generations?.[0]?.text}, ...response?.generations};
@@ -40,7 +40,7 @@ export const openaiGenerateApi = async (messages = []) => {
             {
               headers: {
                 'Content-Type': 'application/json',
-                Authorization: `Bearer sess-zbu1J5vFbkgGdSYMUqIS1Gx1H0R1DZHq47AgVVtJ`
+                Authorization: `Bearer api key`
               }
             }
           );
