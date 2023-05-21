@@ -23,27 +23,28 @@ export const cohereGenerateApi = async (text) => {
 }
 
 
-export const openaiGenerateApi = async (text) => {
+export const openaiGenerateApi = async (messages = []) => {
     try {
         const response = await axios.post(
-            'https://api.openai.com/v1/completions',
+            'https://api.openai.com/v1/chat/completions',
             {
-             "model": "text-davinci-003",
-              prompt: text,
+              "messages": messages,
               "temperature": 1,
               "max_tokens": 256,
               "top_p": 1,
               "frequency_penalty": 0,
-              "presence_penalty": 0
+              "presence_penalty": 0,
+              "model": "gpt-3.5-turbo",
+              "stream": false
             },
             {
               headers: {
                 'Content-Type': 'application/json',
-                Authorization: `Bearer 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`
+                Authorization: `Bearer sess-zbu1J5vFbkgGdSYMUqIS1Gx1H0R1DZHq47AgVVtJ`
               }
             }
           );
-          return {data:{text: response?.data?.choices[0].text},...response?.data};
+          return response;
     } catch (error) {
         console.warn(error);
     }

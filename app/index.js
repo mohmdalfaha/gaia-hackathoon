@@ -18,7 +18,7 @@ export default function Home() {
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
       {/* Use the `Screen` component to configure the layout. */}
       {!isReady && <SplashScreen />}
-      <Stack.Screen options={{ title: "Autism Ai" }} />
+      <Stack.Screen options={{ title: "AiTizma" }} />
       <Button onPress={() => router.push("formPage")}>START</Button>
     </View>
   );
